@@ -11,12 +11,15 @@ node {
          bat "./gradlew build"
       }
     }
-    stage('Run application') {
+    stage('Docker test') {
+         sh "docker ps"
+    }
+    /*stage('Run application') {
       // Run the application
       if (isUnix()) {
          sh "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       } else {
          bat "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       }
-    }
+    }*/
 }
