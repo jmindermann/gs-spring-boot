@@ -12,7 +12,9 @@ node {
       }
     }
     stage('Docker test') {
-         sh "docker ps"
+       sh "docker pull openjdk:latest"
+       sh "docker run -it openjdk:latest bash;"
+       sh "docker ps"
     }
     /*stage('Run application') {
       // Run the application
