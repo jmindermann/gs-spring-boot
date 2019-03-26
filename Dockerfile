@@ -1,5 +1,6 @@
-FROM java:8
-WORKDIR /
-ADD ./build/libs/gs-spring-boot-0.1.0.jar gs-spring-boot-0.1.0.jar
-EXPOSE 8088
-CMD java - jar gs-spring-boot-0.1.0.jar
+# Alpine Linux with OpenJDK JRE
+FROM openjdk:8-jre-alpine
+# copy WAR into image
+COPY ./build/libs/gs-spring-boot-0.1.0.jar /gs-spring-boot.jar
+# run application with this command line 
+CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=default", "/gs-spring-boot.jar"]
