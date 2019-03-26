@@ -4,24 +4,11 @@ node {
       git 'https://github.com/jmindermann/gs-spring-boot.git'
    }
    stage('Build') {
-      // Run the gradle build
-      if (isUnix()) {
-         sh "chmod +x ./gradlew build"
-      } else {
-         bat "./gradlew build"
-      }
-    }
-    stage('Docker test') {
-       sh "docker pull openjdk:latest"
-       sh "docker run -it openjdk:latest bash;"
-       sh "docker ps"
-    }
-    /*stage('Run application') {
-      // Run the application
-      if (isUnix()) {
-         sh "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
-      } else {
-         bat "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
-      }
-    }*/
+      // build with gradle
+      sh "chmod +x ./gradlew build"
+   }
+   stage('Deploy') {
+      // deploy on docker
+      sh "sudo docker build -t gs-spring-boot:latest"
+   }
 }
