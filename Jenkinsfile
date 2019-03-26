@@ -6,7 +6,7 @@ node {
    stage('Build') {
       // Run the gradle build
       if (isUnix()) {
-         sh "./gradlew build"
+         sh "chmod +x ./gradlew build"
       } else {
          bat "./gradlew build"
       }
@@ -14,7 +14,7 @@ node {
     stage('Run application') {
       // Run the application
       if (isUnix()) {
-         sh "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
+         sh "chmod +x java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       } else {
          bat "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       }
