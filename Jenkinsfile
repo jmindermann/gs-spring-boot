@@ -14,7 +14,7 @@ node {
     stage('Run application') {
       // Run the application
       if (isUnix()) {
-         sh "chmod +x java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
+         sh "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       } else {
          bat "java -jar ./build/libs/gs-spring-boot-0.1.0.jar --server.port=9090"
       }
