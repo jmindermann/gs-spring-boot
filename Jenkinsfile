@@ -9,6 +9,7 @@ node {
    }
    stage('Deploy') {
       // deploy on docker
-      sh "sudo docker build -t gs-spring-boot:latest"
+      sh "sudo docker build -t gs-spring-boot ."
+      sh "sudo docker run -d --name gs-spring-boot-container gs-spring-boot"
    }
 }
