@@ -22,8 +22,8 @@ pipeline {
                     //sh "sudo docker build -t gs-spring-boot ."
                     //sh "sudo docker run -d --name gs-spring-boot-container gs-spring-boot"
                     //sh "oc new-app gs-spring-boot"
-                    //sh "oc expose svc/gs-spring-boot"
-                    sh "oc new-app --strategy=docker ."
+                    sh "oc expose gs-spring-boot"
+                    //sh "oc new-app --strategy=docker ."
                 }
             }
         }
