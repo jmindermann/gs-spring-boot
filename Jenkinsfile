@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps{
                 // Get project from DXC GitHub repository
-                git 'https://github.dxc.com/jmindermann/gs-spring-boot.git'
+                git 'https://github.com/jmindermann/gs-spring-boot.git'
             }
         }
         stage('Build') {
