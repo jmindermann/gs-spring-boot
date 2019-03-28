@@ -23,7 +23,7 @@ pipeline {
                     //sh "sudo docker run -d --name gs-spring-boot-container gs-spring-boot"
                     //sh "oc new-app gs-spring-boot"
                     //sh "oc expose svc/gs-spring-boot"
-                    sh "oc new app ."
+                    sh "oc new-app ."
                 }
             }
         }
